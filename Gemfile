@@ -26,8 +26,10 @@ end
 group :test, :development do
   gem 'rspec-rails'
   gem 'capybara'
-  gem 'guard-rspec'
   gem 'jasminerice'
+  gem 'guard-rspec'
+  gem 'guard-jasmine'
+  gem 'rb-fsevent'
 end
 
 gem 'jquery-rails'

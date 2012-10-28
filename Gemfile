@@ -25,7 +25,7 @@ end
 
 group :test, :development do
   gem 'rspec-rails'
-  gem 'capybara'
+  gem 'poltergeist'
   gem 'jasminerice'
   gem 'guard-rspec'
   gem 'guard-jasmine'

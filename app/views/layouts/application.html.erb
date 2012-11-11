@@ -7,8 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <!-- TODO: Move this client-side template to a separate file -->
+  <script id='loggedOut' type='text/html'>
+    <a href='/login'>Login</a>
+  </script>
 
-<%= yield %>
+  <div id='sessionPanel'></div>
+  <%= yield %>
 
 </body>
 </html>

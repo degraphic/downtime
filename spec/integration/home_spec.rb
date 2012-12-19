@@ -15,8 +15,9 @@ describe 'Home page', :js do
     before { click_button 'Login' }
 
     it 'I can fill in a username and password' do
-      page.should have_field 'user_name'
-      page.should have_field 'password'
+      fill_in 'user_name', with: 'bob@example.com'
+      fill_in 'password', with: 'secret'
+      click_button 'Login'
     end
   end
 

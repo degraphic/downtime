@@ -5,6 +5,7 @@ gem 'rails', '3.2.8'
 gem 'mongoid'
 gem 'rails-backbone'
 gem 'haml'
+gem 'devise'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

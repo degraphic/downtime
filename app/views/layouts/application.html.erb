@@ -9,7 +9,19 @@
 <body>
   <!-- TODO: Move this client-side template to a separate file -->
   <script id='loggedOut' type='text/html'>
-    <a href='/login'>Login</a>
+    <form id='loginForm' action='#'>
+      <label for='user_name'>User name:</label>
+      <input type='text' name='user_name'></input>
+      <label for='password'>Password:</label>
+      <input type='text' name='password'></input>
+      <input type='submit' name='login' value='Login'></input>
+    </form>
+  </script>
+  <script id='loggedIn' type='text/html'>
+    <form id='loginForm' action='#'>
+      <label for='user_name'>You are logged in as ...</label>
+      <input type='submit' name='logout' value='Logout'></input>
+    </form>
   </script>
 
   <div id='sessionPanel'></div>

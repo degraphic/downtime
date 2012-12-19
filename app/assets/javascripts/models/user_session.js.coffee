@@ -4,3 +4,7 @@ class Downtime.UserSession extends Backbone.Model
 
   initialize: ->
 
+  login: (userName, password) ->
+
+  logout: ->
+

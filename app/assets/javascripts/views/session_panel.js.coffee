@@ -2,7 +2,7 @@ class Downtime.SessionPanel extends Backbone.View
   el: '#sessionPanel'
 
   initialize: (model) ->
-    @loggedOutTemplate ||= _.template($('#loggedOut').html())
+    @loggedOutTemplate ||= JST['templates/session_panel/logged_out']
     @model = model
 
   render: ->

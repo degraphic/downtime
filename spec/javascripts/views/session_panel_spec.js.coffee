@@ -13,6 +13,8 @@ describe 'Downtime.SessionPanel', ->
       expect(@view).toBeDefined()
       @view.render()
       expect(@view.el.innerHTML).toContain('Login')
+      expect(@view.el.innerHTML).toContain('Email')
+      expect(@view.el.innerHTML).toContain('Password')
 
   describe 'when logged in', ->
 

@@ -1,7 +1,16 @@
+<a href='#' id='login'>Login</a>
 <form id='loginForm' action='/users/sign_in' method='post'>
-  <label for='user_name'>User name:</label>
-  <input type='text' name='user_name'></input>
-  <label for='password'>Password:</label>
-  <input type='text' name='password'></input>
-  <input type='submit' name='login' value='Login'></input>
+  <div>
+    <label for='user_email'>Email</label>
+    <br/>
+    <input type='text' name='user_email'></input>
+  </div>
+  <div>
+    <label for='user_password'>Password</label>
+    <br/>
+    <input type='text' name='user_password'></input>
+  </div>
+  <div>
+    <input type='submit' id='sign_in' name='sign_in' value='Sign in'></input>
+  </div>
 </form>

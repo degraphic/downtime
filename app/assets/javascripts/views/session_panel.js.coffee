@@ -24,11 +24,23 @@ class Downtime.SessionPanel extends Backbone.View
     $('form', @$el).show()
 
   submitForm: (event) ->
-    data = $('form', @$el).serialize()
-    $.ajax url: '/users/sign_in',
-      type: 'POST',
-      beforeSend: (xhr) -> xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content')),
-      data: data,
-      success: (response) -> console.log 'success'
     event.preventDefault()
+    #TODO: work out how to automap form to model
+    @model.set 'email', $("input[name=user_email]").val()
+    @model.set 'password', $("input[name=user_password]").val()
+    @model.save @model.attributes,
+      success: (userSession, response) ->
+        console.log 'success'
+        console.log response
+        #TODO: deserialise the model
+        #$(@el).find('input.btn-primary').button('reset');
+        #BD.currentUser = new BD.Models.User(response);
+        #BD.vent.trigger("authentication:logged_in");
+      error: (userSession, response) ->
+        console.log 'error'
+        result = $.parseJSON(response.responseText)
+        console.log result
+        #TODO: display an error message
+        #$(@el).find('form').prepend(BD.Helpers.Notifications.error(result.error));
+        #$(@el).find('input.btn-primary').button('reset') )
 

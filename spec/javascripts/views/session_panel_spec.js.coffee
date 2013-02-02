@@ -2,19 +2,27 @@ describe 'Downtime.SessionPanel', ->
 
   beforeEach ->
     # TODO: Work out a better way to share fixtures with the implementation
-    setFixtures("<div id='sessionPanel'></div><script id='loggedOut' type='text/html'><a href='/login'>Login</a></script>")
+    setFixtures("<div id='sessionPanel'></div>")
 
   describe 'when not logged in', ->
 
     beforeEach ->
       @view = new Downtime.SessionPanel(null)
+      @view.render()
 
     it 'renders a login link', ->
-      expect(@view).toBeDefined()
-      @view.render()
       expect(@view.el.innerHTML).toContain('Login')
-      expect(@view.el.innerHTML).toContain('Email')
-      expect(@view.el.innerHTML).toContain('Password')
+
+    it 'the form is initially hidden', ->
+      console.log($('html')[0].innerHTML)
+      form = $('form', @view.el)
+      expect(form).not.toBeVisible()
+
+    it 'the login link opens the form', ->
+      $('#login').click()
+      form = $('form', @view.el)
+      expect(form).toBeVisible()
+
 
   describe 'when logged in', ->
 

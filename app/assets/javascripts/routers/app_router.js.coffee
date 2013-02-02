@@ -1,5 +1,5 @@
 class Downtime.Router extends Backbone.Router
-  routes: 
+  routes:
     "": "home"
 
   home: ->
@@ -10,4 +10,3 @@ $ ->
   session = new Downtime.UserSession()
   view = new Downtime.SessionPanel(session)
   view.render()
-

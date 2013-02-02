@@ -1,13 +1,13 @@
 describe 'Downtime.SessionPanel', ->
 
   beforeEach ->
-    # TODO: Work out a better way to share fixtures with the implementation
     setFixtures("<div id='sessionPanel'></div>")
 
   describe 'when not logged in', ->
 
     beforeEach ->
-      @view = new Downtime.SessionPanel(null)
+      @model = new Downtime.UserSession
+      @view = new Downtime.SessionPanel(@model)
       @view.render()
 
     it 'renders a login link', ->
@@ -23,14 +23,28 @@ describe 'Downtime.SessionPanel', ->
       form = $('form', @view.el)
       expect(form).toBeVisible()
 
+    it 'filling in the login form with valid credentials establishes a user session', ->
+      $("input[name='user_email']").val('bob@roberts.com')
+      $("input[name='user_password']").val('secret')
+      $('#sign_in').click()
+
+    xit 'filling in the login form with invalid credentials displays an error message', ->
+      pending()
 
   describe 'when logged in', ->
 
     beforeEach ->
-      @view = new Downtime.SessionPanel(null)
-
-    xit 'renders a login link', ->
-      pending()
-      expect(@view).toBeDefined()
+      # TODO: Setup logged in user session model
+      @model = new Downtime.UserSession { loggedIn: true, name: 'Bob Roberts' }
+      @view = new Downtime.SessionPanel @model
       @view.render()
-      expect(@view.el.innerHTML).notToContain('Login')
+
+    it 'renders a sign out link', ->
+      expect(@view.el.innerHTML).toContain('Sign out')
+
+    it 'renders a user name', ->
+      expect(@view.el.innerHTML).toContain('Bob Roberts')
+
+    xit 'sign out button ends the user session', ->
+      pending()
+
